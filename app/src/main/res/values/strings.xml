@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Game100YKT</string>
+    <string name="game_name">НАЗВАНИЕ ИГРЫ</string>
+    <string name="help_button">help button</string>
+    <string name="blue_button">blue button</string>
+    <string name="red_button">red button</string>
+    <string name="green_button">green button</string>
+    <string name="purple_button">purple button</string>
+    <string name="yellow_button">yellow button</string>
+    <string name="orange_button">orange button</string>
+    <string name="white_button">white button</string>
+    <string name="sky_blue_button">sky blue button</string>
+    <string name="ykt_100_years">100 years yakutian</string>
+</resources>
