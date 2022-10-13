@@ -5,148 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/skyblue"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ykt100years"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/ykt_100_years"/>
-
-        <ImageButton
-            android:id="@+id/help_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:src="@drawable/help_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/help_button"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- Название игры -->
-    <TextView
-        android:id="@+id/name_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/darkblue"
-        android:text="@string/game_name"
-        android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayout" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name_tv">
-
-        <!-- первый ряд кнопок -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/buttons_vert_margins"
-            android:gravity="center">
-            <ImageButton
-                android:id="@+id/blue_button"
-                android:layout_width="@dimen/color_button_width"
-                android:layout_height="@dimen/color_button_width"
-                android:background="@drawable/blue_button_custom"
-                android:layout_marginEnd="@dimen/buttons_hor_margins"
-                android:contentDescription="@string/blue_button"/>
-            <ImageButton
-                android:id="@+id/red_button"
-                android:layout_width="@dimen/color_button_width"
-                android:layout_height="@dimen/color_button_width"
-                android:background="@drawable/red_button_custom"
-                android:contentDescription="@string/red_button"/>
-        </LinearLayout>
-
-        <!-- второй ряд кнопок -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/buttons_vert_margins"
-            android:gravity="center">
-            <ImageButton
-                android:id="@+id/green_button"
-                android:layout_width="@dimen/color_button_width"
-                android:layout_height="@dimen/color_button_width"
-                android:background="@drawable/green_button_custom"
-                android:layout_marginEnd="@dimen/buttons_hor_margins"
-                android:contentDescription="@string/green_button"/>
-            <ImageButton
-                android:id="@+id/purple_button"
-                android:layout_width="@dimen/color_button_width"
-                android:layout_height="@dimen/color_button_width"
-                android:background="@drawable/purple_button_custom"
-                android:contentDescription="@string/purple_button"/>
-        </LinearLayout>
-
-        <!-- третий ряд кнопок -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/buttons_vert_margins"
-            android:gravity="center">
-            <ImageButton
-                android:id="@+id/yellow_button"
-                android:layout_width="@dimen/color_button_width"
-                android:layout_height="@dimen/color_button_width"
-                android:background="@drawable/yellow_button_custom"
-                android:layout_marginEnd="@dimen/buttons_hor_margins"
-                android:contentDescription="@string/yellow_button"/>
-            <ImageButton
-                android:id="@+id/orange_button"
-                android:layout_width="@dimen/color_button_width"
-                android:layout_height="@dimen/color_button_width"
-                android:background="@drawable/orange_button_custom"
-                android:contentDescription="@string/orange_button"/>
-        </LinearLayout>
-
-        <!-- четвертый ряд кнопок -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/buttons_vert_margins"
-            android:gravity="center">
-            <ImageButton
-                android:id="@+id/white_button"
-                android:layout_width="@dimen/color_button_width"
-                android:layout_height="@dimen/color_button_width"
-                android:background="@drawable/white_button_custom"
-                android:layout_marginEnd="@dimen/buttons_hor_margins"
-                android:contentDescription="@string/white_button"/>
-            <ImageButton
-                android:id="@+id/skyblue_button"
-                android:layout_width="@dimen/color_button_width"
-                android:layout_height="@dimen/color_button_width"
-                android:background="@drawable/skyblue_button_custom"
-                android:contentDescription="@string/sky_blue_button"/>
-        </LinearLayout>
-    </LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 

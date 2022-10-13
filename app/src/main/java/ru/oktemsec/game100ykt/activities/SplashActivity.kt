@@ -1,4 +1,4 @@
-package ru.oktemsec.game100ykt
+package ru.oktemsec.game100ykt.activities
 
 import android.content.Intent
 import android.net.Uri
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
+import ru.oktemsec.game100ykt.R
 
 
 class SplashActivity : AppCompatActivity() {
