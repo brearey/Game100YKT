@@ -43,10 +43,9 @@ class QuestionDialogFragment: DialogFragment() {
                 "Ваша награда: " + dialog_reward
             )
             .setNeutralButton(R.string.show_answer) {_, _ ->
-                Toast.makeText(requireContext(), answersList[dialog_argument], Toast.LENGTH_LONG).apply {
-                    setGravity(Gravity.TOP, 0, 0)
-                    show()
-                }
+
+                val answerDialogFragment = AnswerDialogFragment()
+                answerDialogFragment.show(parentFragmentManager, dialog_argument)
 
             }
         val alertDialog = alertDialogBuilder.create()
@@ -65,13 +64,6 @@ class QuestionDialogFragment: DialogFragment() {
             "Все мы знаем якутского писателя, основоположника якутской советской литературы, общественного деятеля Платона Ойунского. А какая его настоящая фамилия?",
             "Кто создал первый вариант якутского алфавита?",
             "Все вы знаете, что во время проведения Ысыаха Туймаады было установлено несколько мировых рекордов Гиннесса. А сколько их было?"
-        )
-
-        //for debug
-        @JvmStatic val answersList = listOf(
-            "Слепцов",
-            "Семён Андревич Новгородов",
-            "Всего 4:\n2011 — самый большой ансамбль хомусистов в мире с 1344 участниками;\n2012 — самый большой круговой танец в мире — осуохай, в котором участвовали 15 293 человека;\n2014 — рекордное количество участников в массовом обряде благословения Алгыс — 11 136 человек;\n2017 — мировой рекорд по самому большому количеству людей в национальной одежде — 16 626 участников."
         )
 
         //for debug

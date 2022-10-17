@@ -10,15 +10,11 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import ru.oktemsec.game100ykt.R
-import kotlin.random.Random
 
-class ChallengeDialogFragment: DialogFragment() {
+class AnswerDialogFragment: DialogFragment() {
 
     private val dialog_argument: Int
         get() = requireArguments().getInt(DIALOG_ARGUMENT)
-
-    private val isTable: Boolean
-        get() = requireArguments().getBoolean(DIALOG_IS_TABLE)
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
@@ -34,20 +30,13 @@ class ChallengeDialogFragment: DialogFragment() {
             image?.setImageResource(0)
         }
 
-        // разделение табличных заданий от обычных
-        val message = if (isTable) {
-            tableChallengeList[Random.nextInt(0, tableChallengeList.size)]
-        }
-        else {
-            challengeList[dialog_argument]
-        }
 
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
             .setView(view)
             .setCancelable(true)
             .setIcon(R.drawable.ic_challenge)
-            .setTitle("Ваше задание")
-            .setMessage(message)
+            .setTitle("Правильный ответ:")
+            .setMessage(answersList[dialog_argument])
             .setNeutralButton(R.string.close_dialog) {_, _ ->
                 dialog?.cancel()
             }
@@ -57,25 +46,15 @@ class ChallengeDialogFragment: DialogFragment() {
     }
 
     companion object {
-        @JvmStatic val TAG = ChallengeDialogFragment::class.java.simpleName
+        @JvmStatic val TAG = AnswerDialogFragment::class.java.simpleName
 
         @JvmStatic val DIALOG_ARGUMENT = "DIALOG_ARGUMENT"
-        @JvmStatic val DIALOG_IS_TABLE = "DIALOG_IS_TABLE"
 
         //for debug
-        @JvmStatic val challengeList = listOf(
-            "Передай право хода следующему игроку",
-            "Переходи по картинке-мосту на другой квадратик",
-            "Таймаут. Пропускаешь ход"
-        )
-
-        //for debug
-        @JvmStatic val tableChallengeList = listOf(
-            "Прочитай любое стихотворение",
-            "Расскажи любой факт о декларации, который ты успел узнать",
-            "Спой песню",
-            "Сделай комплимент рядом сидящему игроку",
-            "Передай ход следующему"
+        @JvmStatic val answersList = listOf(
+            "Слепцов",
+            "Семён Андревич Новгородов",
+            "Всего 4:\n2011 — самый большой ансамбль хомусистов в мире с 1344 участниками;\n2012 — самый большой круговой танец в мире — осуохай, в котором участвовали 15 293 человека;\n2014 — рекордное количество участников в массовом обряде благословения Алгыс — 11 136 человек;\n2017 — мировой рекорд по самому большому количеству людей в национальной одежде — 16 626 участников."
         )
 
         //for debug
@@ -86,12 +65,9 @@ class ChallengeDialogFragment: DialogFragment() {
         )
     }
 
-    fun show(manager: FragmentManager, dialog_argument: Int, isTable: Boolean) {
-        val dialogFragment = ChallengeDialogFragment()
-        dialogFragment.arguments = bundleOf(
-            DIALOG_ARGUMENT to dialog_argument,
-            DIALOG_IS_TABLE to isTable
-        )
+    fun show(manager: FragmentManager, dialog_argument: Int) {
+        val dialogFragment = AnswerDialogFragment()
+        dialogFragment.arguments = bundleOf(DIALOG_ARGUMENT to dialog_argument)
         dialogFragment.show(manager, TAG)
     }
 }

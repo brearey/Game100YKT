@@ -29,19 +29,27 @@ class MainFragment: Fragment() {
         }
 
         whiteButton.setOnClickListener {
-            showChallengeDialogFragment(0)
+            showChallengeDialogFragment(0, false)
         }
 
         greenButton.setOnClickListener {
-            showChallengeDialogFragment(1)
+            showChallengeDialogFragment(1, false)
         }
 
         yellowButton.setOnClickListener {
-            showChallengeDialogFragment(2)
+            showChallengeDialogFragment(2, false)
         }
 
         skyblueButton.setOnClickListener {
             showQuestionDialogFragment(reward = "Фишка х2")
+        }
+
+        purpleButton.setOnClickListener {
+            showChallengeDialogFragment(1, true)
+        }
+
+        orangeButton.setOnClickListener {
+            showChallengeDialogFragment(1, true)
         }
 
         // click help button
@@ -60,12 +68,12 @@ class MainFragment: Fragment() {
         questionDialogFragment.show(parentFragmentManager, Random.nextInt(0, QuestionDialogFragment.questionsList.size), reward = reward)
     }
 
-    private fun showChallengeDialogFragment(challengeNumber: Int) {
+    private fun showChallengeDialogFragment(challengeNumber: Int, isTable: Boolean) {
         // challengeNumber = 0 Передай право хода следующему игроку
         // challengeNumber = 1 Переходи по картинке-мосту на другой квадратик
         // challengeNumber = 2 Таймаут. Пропускаешь ход
 
         val challengeDialogFragment = ChallengeDialogFragment()
-        challengeDialogFragment.show(parentFragmentManager, challengeNumber)
+        challengeDialogFragment.show(parentFragmentManager, challengeNumber, isTable)
     }
 }
