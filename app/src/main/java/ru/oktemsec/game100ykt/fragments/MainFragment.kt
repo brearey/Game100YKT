@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.oktemsec.game100ykt.databinding.FragmentMainBinding
+import ru.oktemsec.game100ykt.dialogs.ChallengeDialogFragment
 import ru.oktemsec.game100ykt.dialogs.QuestionDialogFragment
 import ru.oktemsec.game100ykt.utils.navigator
 import kotlin.random.Random
@@ -24,7 +25,19 @@ class MainFragment: Fragment() {
 
         // click color buttons
         blueButton.setOnClickListener {
-            showChallengeDialogFragment()
+            showQuestionDialogFragment()
+        }
+
+        whiteButton.setOnClickListener {
+            showChallengeDialogFragment(0)
+        }
+
+        greenButton.setOnClickListener {
+            showChallengeDialogFragment(1)
+        }
+
+        yellowButton.setOnClickListener {
+            showChallengeDialogFragment(2)
         }
 
         // click help button
@@ -38,8 +51,17 @@ class MainFragment: Fragment() {
         navigator().showHelpScreen()
     }
 
-    private fun showChallengeDialogFragment() {
+    private fun showQuestionDialogFragment() {
         val questionDialogFragment = QuestionDialogFragment()
         questionDialogFragment.show(parentFragmentManager, Random.nextInt(0, QuestionDialogFragment.questionsList.size))
+    }
+
+    private fun showChallengeDialogFragment(challengeNumber: Int) {
+        // challengeNumber = 0 Передай право хода следующему игроку
+        // challengeNumber = 1 Переходи по картинке-мосту на другой квадратик
+        // challengeNumber = 2 Таймаут. Пропускаешь ход
+
+        val challengeDialogFragment = ChallengeDialogFragment()
+        challengeDialogFragment.show(parentFragmentManager, challengeNumber)
     }
 }
