@@ -25,7 +25,7 @@ class MainFragment: Fragment() {
 
         // click color buttons
         blueButton.setOnClickListener {
-            showQuestionDialogFragment()
+            showQuestionDialogFragment(reward = "Фишка х1")
         }
 
         whiteButton.setOnClickListener {
@@ -40,6 +40,10 @@ class MainFragment: Fragment() {
             showChallengeDialogFragment(2)
         }
 
+        skyblueButton.setOnClickListener {
+            showQuestionDialogFragment(reward = "Фишка х2")
+        }
+
         // click help button
         helpButton.setOnClickListener {
             onHelpPressed()
@@ -51,9 +55,9 @@ class MainFragment: Fragment() {
         navigator().showHelpScreen()
     }
 
-    private fun showQuestionDialogFragment() {
+    private fun showQuestionDialogFragment(reward: String) {
         val questionDialogFragment = QuestionDialogFragment()
-        questionDialogFragment.show(parentFragmentManager, Random.nextInt(0, QuestionDialogFragment.questionsList.size))
+        questionDialogFragment.show(parentFragmentManager, Random.nextInt(0, QuestionDialogFragment.questionsList.size), reward = reward)
     }
 
     private fun showChallengeDialogFragment(challengeNumber: Int) {

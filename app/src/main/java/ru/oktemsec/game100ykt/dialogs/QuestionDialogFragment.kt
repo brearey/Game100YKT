@@ -15,6 +15,8 @@ class QuestionDialogFragment: DialogFragment() {
 
     private val dialog_argument: Int
         get() = requireArguments().getInt(DIALOG_ARGUMENT)
+    private val dialog_reward: String?
+        get() = requireArguments().getString(DIALOG_REWARD)
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
@@ -36,7 +38,10 @@ class QuestionDialogFragment: DialogFragment() {
             .setCancelable(false)
             .setIcon(R.drawable.ic_question)
             .setTitle("Вопрос № ${dialog_argument.toString()}")
-            .setMessage(questionsList[dialog_argument])
+            .setMessage(
+                questionsList[dialog_argument] + "\n\n" +
+                "Ваша награда: " + dialog_reward
+            )
             .setNeutralButton(R.string.show_answer) {_, _ ->
                 Toast.makeText(requireContext(), answersList[dialog_argument], Toast.LENGTH_LONG).apply {
                     setGravity(Gravity.TOP, 0, 0)
@@ -53,6 +58,7 @@ class QuestionDialogFragment: DialogFragment() {
         @JvmStatic val TAG = QuestionDialogFragment::class.java.simpleName
 
         @JvmStatic val DIALOG_ARGUMENT = "DIALOG_ARGUMENT"
+        @JvmStatic val DIALOG_REWARD = "DIALOG_REWARD"
 
         //for debug
         @JvmStatic val questionsList = listOf(
@@ -76,9 +82,12 @@ class QuestionDialogFragment: DialogFragment() {
         )
     }
 
-    fun show(manager: FragmentManager, dialog_argument: Int) {
+    fun show(manager: FragmentManager, dialog_argument: Int, reward: String) {
         val dialogFragment = QuestionDialogFragment()
-        dialogFragment.arguments = bundleOf(DIALOG_ARGUMENT to dialog_argument)
+        dialogFragment.arguments = bundleOf(
+            DIALOG_ARGUMENT to dialog_argument,
+            DIALOG_REWARD to reward
+        )
         dialogFragment.show(manager, TAG)
     }
 }
