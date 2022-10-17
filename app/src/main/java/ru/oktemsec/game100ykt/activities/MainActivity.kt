@@ -14,7 +14,8 @@ import ru.oktemsec.game100ykt.databinding.ActivityMainBinding
 import ru.oktemsec.game100ykt.fragments.HelpFragment
 import ru.oktemsec.game100ykt.fragments.MainFragment
 import ru.oktemsec.game100ykt.utils.Navigator
-import ru.oktemsec.game100ykt.utils.Options
+import ru.oktemsec.game100ykt.models.Options
+import ru.oktemsec.game100ykt.models.Question
 import ru.oktemsec.game100ykt.utils.ResultListener
 
 class MainActivity : AppCompatActivity(), Navigator {
@@ -59,17 +60,14 @@ class MainActivity : AppCompatActivity(), Navigator {
         launchFragment(HelpFragment())
     }
 
-    override fun showBoxSelectionScreen(options: Options) {
-        // переделать в новое окно
+    override fun showInformationCard(options: Options) {
+        TODO("Not yet implemented")
     }
 
-    override fun showOptionsScreen(options: Options) {
-        // переделать в новое окно
+    override fun showQuestionDialog(question: Question) {
+        TODO("Not yet implemented")
     }
 
-    override fun showCongratulationsScreen() {
-        // переделать в новое окно
-    }
 
     override fun goBack() {
         onBackPressed()

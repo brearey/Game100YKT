@@ -1,4 +1,4 @@
-package ru.oktemsec.game100ykt.utils
+package ru.oktemsec.game100ykt.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

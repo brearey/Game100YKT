@@ -5,9 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import ru.oktemsec.game100ykt.databinding.FragmentMainBinding
+import ru.oktemsec.game100ykt.dialogs.ChallengeDialogFragment
 import ru.oktemsec.game100ykt.utils.navigator
+import kotlin.random.Random
 
 
 class MainFragment: Fragment() {
@@ -23,7 +26,7 @@ class MainFragment: Fragment() {
 
         // click color buttons
         blueButton.setOnClickListener {
-            onBlueButtonPressed()
+            showChallengeDialogFragment()
         }
 
         // click help button
@@ -37,7 +40,8 @@ class MainFragment: Fragment() {
         navigator().showHelpScreen()
     }
 
-    private fun onBlueButtonPressed() {
-        Log.d(TAG, "blue button was clicked")
+    private fun showChallengeDialogFragment() {
+        val challengeDialogFragment = ChallengeDialogFragment()
+        challengeDialogFragment.show(parentFragmentManager, Random.nextInt(0, ChallengeDialogFragment.questionsList.size))
     }
 }
