@@ -11,7 +11,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import ru.oktemsec.game100ykt.R
 
-class ChallengeDialogFragment: DialogFragment() {
+class QuestionDialogFragment: DialogFragment() {
 
     private val dialog_argument: Int
         get() = requireArguments().getInt(DIALOG_ARGUMENT)
@@ -50,7 +50,7 @@ class ChallengeDialogFragment: DialogFragment() {
     }
 
     companion object {
-        @JvmStatic val TAG = ChallengeDialogFragment::class.java.simpleName
+        @JvmStatic val TAG = QuestionDialogFragment::class.java.simpleName
 
         @JvmStatic val DIALOG_ARGUMENT = "DIALOG_ARGUMENT"
 
@@ -77,7 +77,7 @@ class ChallengeDialogFragment: DialogFragment() {
     }
 
     fun show(manager: FragmentManager, dialog_argument: Int) {
-        val dialogFragment = ChallengeDialogFragment()
+        val dialogFragment = QuestionDialogFragment()
         dialogFragment.arguments = bundleOf(DIALOG_ARGUMENT to dialog_argument)
         dialogFragment.show(manager, TAG)
     }
