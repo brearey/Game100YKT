@@ -12,6 +12,7 @@ import androidx.lifecycle.LifecycleOwner
 import ru.oktemsec.game100ykt.R
 import ru.oktemsec.game100ykt.databinding.ActivityMainBinding
 import ru.oktemsec.game100ykt.fragments.HelpFragment
+import ru.oktemsec.game100ykt.fragments.InformationCardFragment
 import ru.oktemsec.game100ykt.fragments.MainFragment
 import ru.oktemsec.game100ykt.utils.Navigator
 import ru.oktemsec.game100ykt.models.Options
@@ -60,8 +61,8 @@ class MainActivity : AppCompatActivity(), Navigator {
         launchFragment(HelpFragment())
     }
 
-    override fun showInformationCard(options: Options) {
-        TODO("Not yet implemented")
+    override fun showInformationCard() {
+        launchFragment(InformationCardFragment())
     }
 
     override fun showQuestionDialog(question: Question) {

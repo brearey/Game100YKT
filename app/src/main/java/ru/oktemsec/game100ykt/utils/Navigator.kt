@@ -15,7 +15,7 @@ fun Fragment.navigator(): Navigator {
 interface Navigator {
 
     // открыть Информационную карточку
-    fun showInformationCard(options: Options)
+    fun showInformationCard()
 
     // открыть Правила игры
     fun showHelpScreen()

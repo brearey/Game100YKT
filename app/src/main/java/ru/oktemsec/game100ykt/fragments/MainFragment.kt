@@ -52,6 +52,10 @@ class MainFragment: Fragment() {
             showChallengeDialogFragment(1, true)
         }
 
+        redButton.setOnClickListener {
+            onRedButtonClicked()
+        }
+
         // click help button
         helpButton.setOnClickListener {
             onHelpPressed()
@@ -61,6 +65,10 @@ class MainFragment: Fragment() {
 
     private fun onHelpPressed() {
         navigator().showHelpScreen()
+    }
+
+    private fun onRedButtonClicked() {
+        navigator().showInformationCard()
     }
 
     private fun showQuestionDialogFragment(reward: String) {

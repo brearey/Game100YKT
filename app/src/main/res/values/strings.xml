@@ -16,4 +16,7 @@
     <string name="game_area">Поле игры</string>
     <string name="show_answer">Показать ответ</string>
     <string name="close_dialog">Закрыть</string>
+    <string name="information_card_back">Information card back</string>
+    <string name="icard">Информационная карточка</string>
+    <string name="button_back">Кнопка назад</string>
 </resources>
