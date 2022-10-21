@@ -15,7 +15,6 @@ import ru.oktemsec.game100ykt.fragments.HelpFragment
 import ru.oktemsec.game100ykt.fragments.InformationCardFragment
 import ru.oktemsec.game100ykt.fragments.MainFragment
 import ru.oktemsec.game100ykt.utils.Navigator
-import ru.oktemsec.game100ykt.models.Options
 import ru.oktemsec.game100ykt.models.Question
 import ru.oktemsec.game100ykt.utils.ResultListener
 
