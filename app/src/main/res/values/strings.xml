@@ -12,11 +12,12 @@
     <string name="sky_blue_button">sky blue button</string>
     <string name="ykt_100_years">100 years yakutian</string>
     <string name="game_roles">Правила игры</string>
-    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
     <string name="game_area">Поле игры</string>
     <string name="show_answer">Показать ответ</string>
     <string name="close_dialog">Закрыть</string>
     <string name="information_card_back">Information card back</string>
     <string name="icard">Информационная карточка</string>
     <string name="button_back">Кнопка назад</string>
+    <string name="example_source">Источник: <u>https://www.100yakutia.ru/istoriya-yakutii/47-istoriya-yakutii</u></string>
 </resources>

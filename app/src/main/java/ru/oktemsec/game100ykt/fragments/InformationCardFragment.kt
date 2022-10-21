@@ -34,26 +34,28 @@ class InformationCardFragment : Fragment() {
         front_anim = AnimatorInflater.loadAnimator(requireContext(), R.animator.front_animator) as AnimatorSet
         back_anim = AnimatorInflater.loadAnimator(requireContext(), R.animator.back_animator) as AnimatorSet
 
-        informationCardImageBack.setOnClickListener {
-            if (!isFront) {
-                front_anim.setTarget(informationCardImageFront)
-                back_anim.setTarget(informationCardImageBack)
-                front_anim.start()
-                back_anim.start()
-                isFront = true
-            }
-            else {
-                front_anim.setTarget(informationCardImageBack)
-                back_anim.setTarget(informationCardImageFront)
-                back_anim.start()
-                front_anim.start()
-                isFront = false
-            }
-        }
+        informationCardImageBack.setOnClickListener { animateCard() }
     }.root
 
     private fun onBackPressed() {
         navigator().goBack()
+    }
+
+    private fun animateCard() {
+        if (!isFront) {
+            front_anim.setTarget(informationCardImageFront)
+            back_anim.setTarget(informationCardImageBack)
+            front_anim.start()
+            back_anim.start()
+            isFront = true
+        }
+        else {
+            front_anim.setTarget(informationCardImageBack)
+            back_anim.setTarget(informationCardImageFront)
+            back_anim.start()
+            front_anim.start()
+            isFront = false
+        }
     }
 
 }
