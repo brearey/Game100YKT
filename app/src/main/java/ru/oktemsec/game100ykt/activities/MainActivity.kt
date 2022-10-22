@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.LifecycleOwner
 import ru.oktemsec.game100ykt.R
+import ru.oktemsec.game100ykt.data.Game
 import ru.oktemsec.game100ykt.databinding.ActivityMainBinding
 import ru.oktemsec.game100ykt.fragments.HelpFragment
 import ru.oktemsec.game100ykt.fragments.InformationCardFragment
@@ -61,7 +62,8 @@ class MainActivity : AppCompatActivity(), Navigator {
     }
 
     override fun showInformationCard() {
-        launchFragment(InformationCardFragment())
+        val game = Game(this)
+        launchFragment(InformationCardFragment(game))
     }
 
     override fun showQuestionDialog(question: Question) {

@@ -2,18 +2,22 @@ package ru.oktemsec.game100ykt.fragments
 
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
+import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_information_card.*
 import ru.oktemsec.game100ykt.R
+import ru.oktemsec.game100ykt.data.Game
 import ru.oktemsec.game100ykt.databinding.FragmentInformationCardBinding
 import ru.oktemsec.game100ykt.utils.navigator
 import kotlin.random.Random
 
-class InformationCardFragment : Fragment() {
+class InformationCardFragment(private val game: Game) : Fragment() {
 
     private lateinit var front_anim: AnimatorSet
     private lateinit var back_anim: AnimatorSet
@@ -39,10 +43,19 @@ class InformationCardFragment : Fragment() {
         binding.informationCardImageBack.setOnClickListener { animateCard() }
 
         // Generate for an information card
-        generateInformation()
+        //generateInformation()
 
         // Back button click
         binding.buttonBack.setOnClickListener { onBackPressed() }
+
+        // debug game logic
+        val informationCard = game.generateInformationCard()
+
+        Log.d("brearey", informationCard.toString())
+        binding.icardImage.setImageResource(informationCard.image)
+
+        binding.icardText.text = informationCard.informationText
+
 
         return binding.root
     }

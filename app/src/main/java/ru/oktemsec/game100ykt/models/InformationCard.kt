@@ -1,9 +1,8 @@
 package ru.oktemsec.game100ykt.models
 
-import android.media.Image
+import android.graphics.drawable.Drawable
 
 data class InformationCard(
-    val image: Image,
-    val informationText: String,
-    val source: String
+    val image: Int,
+    val informationText: String
 )
