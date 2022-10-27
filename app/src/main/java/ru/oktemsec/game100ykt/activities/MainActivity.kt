@@ -3,14 +3,17 @@ package ru.oktemsec.game100ykt.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.LifecycleOwner
 import ru.oktemsec.game100ykt.R
-import ru.oktemsec.game100ykt.data.Game
+import ru.oktemsec.game100ykt.data.GameViewModel
 import ru.oktemsec.game100ykt.databinding.ActivityMainBinding
 import ru.oktemsec.game100ykt.fragments.HelpFragment
 import ru.oktemsec.game100ykt.fragments.InformationCardFragment
@@ -22,6 +25,8 @@ import ru.oktemsec.game100ykt.utils.ResultListener
 class MainActivity : AppCompatActivity(), Navigator {
 
     private lateinit var binding: ActivityMainBinding
+    // ViewModel
+    private val gameViewModel: GameViewModel by viewModels()
 
     private val currentFragment: Fragment
         get() = supportFragmentManager.findFragmentById(R.id.fragment_container)!!
@@ -62,8 +67,12 @@ class MainActivity : AppCompatActivity(), Navigator {
     }
 
     override fun showInformationCard() {
-        val game = Game(this)
-        launchFragment(InformationCardFragment(game))
+        if (gameViewModel.itemsLeft() > 0) {
+            launchFragment(InformationCardFragment(gameViewModel))
+        }
+        else {
+            Toast.makeText(this, "Информационных карточек больше нет", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun showQuestionDialog(question: Question) {
