@@ -1,9 +1,8 @@
 package ru.oktemsec.game100ykt.models
 
-import android.media.Image
-
 data class Question(
     val question: String,
-    val image: Image?,
-    val answer: String
+    val image: Int,
+    val answer: String,
+    val number: Int
 )

@@ -40,12 +40,10 @@ class InformationCardFragment(private val gameViewModel: GameViewModel) : Fragme
         // Back button click
         binding.buttonBack.setOnClickListener { onBackPressed() }
 
-        // game logic
+        // set information card content
         val informationCard = gameViewModel.nextInformationCard()
-        if (informationCard != null) {
-            binding.icardImage.setImageResource(informationCard.image)
-            binding.icardText.text = informationCard.informationText
-        }
+        binding.icardImage.setImageResource(informationCard.image)
+        binding.icardText.text = informationCard.informationText
 
 
         return binding.root

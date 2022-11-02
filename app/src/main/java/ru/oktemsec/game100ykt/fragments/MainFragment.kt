@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import ru.oktemsec.game100ykt.data.GameViewModel
 import ru.oktemsec.game100ykt.databinding.FragmentMainBinding
 import ru.oktemsec.game100ykt.dialogs.ChallengeDialogFragment
 import ru.oktemsec.game100ykt.dialogs.QuestionDialogFragment
@@ -13,6 +17,9 @@ import kotlin.random.Random
 
 
 class MainFragment: Fragment() {
+
+    // ViewModel
+    private val gameViewModel: GameViewModel by activityViewModels()
 
     // for debug
     private val TAG = "brearey"
@@ -25,7 +32,7 @@ class MainFragment: Fragment() {
 
         // click color buttons
         blueButton.setOnClickListener {
-            showQuestionDialogFragment(reward = "Фишка х1")
+            showQuestionDialogFragment(reward = 1)
         }
 
         whiteButton.setOnClickListener {
@@ -41,7 +48,7 @@ class MainFragment: Fragment() {
         }
 
         skyblueButton.setOnClickListener {
-            showQuestionDialogFragment(reward = "Фишка х2")
+            showQuestionDialogFragment(reward = 2)
         }
 
         purpleButton.setOnClickListener {
@@ -71,9 +78,14 @@ class MainFragment: Fragment() {
         navigator().showInformationCard()
     }
 
-    private fun showQuestionDialogFragment(reward: String) {
-        val questionDialogFragment = QuestionDialogFragment()
-        questionDialogFragment.show(parentFragmentManager, Random.nextInt(0, QuestionDialogFragment.questionsList.size), reward = reward)
+    private fun showQuestionDialogFragment(reward: Int) {
+        if ((gameViewModel.availableQuestionsList.value?.size ?: 0) > 0) {
+            val questionDialogFragment = QuestionDialogFragment()
+            questionDialogFragment.show(parentFragmentManager, reward = reward)
+        }
+        else {
+            Toast.makeText(requireContext(), "Вопросов больше нет", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun showChallengeDialogFragment(challengeNumber: Int, isTable: Boolean) {
