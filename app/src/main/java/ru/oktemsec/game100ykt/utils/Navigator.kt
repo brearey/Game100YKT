@@ -19,7 +19,7 @@ interface Navigator {
     // открыть Правила игры
     fun showHelpScreen()
 
-    fun showQuestionDialog(question: Question)
+    fun showQuestionDialog(reward: Int)
 
     fun goBack()
 

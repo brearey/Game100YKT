@@ -3,7 +3,6 @@ package ru.oktemsec.game100ykt.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -15,11 +14,11 @@ import androidx.lifecycle.LifecycleOwner
 import ru.oktemsec.game100ykt.R
 import ru.oktemsec.game100ykt.data.GameViewModel
 import ru.oktemsec.game100ykt.databinding.ActivityMainBinding
+import ru.oktemsec.game100ykt.dialogs.QuestionDialogFragment
 import ru.oktemsec.game100ykt.fragments.HelpFragment
 import ru.oktemsec.game100ykt.fragments.InformationCardFragment
 import ru.oktemsec.game100ykt.fragments.MainFragment
 import ru.oktemsec.game100ykt.utils.Navigator
-import ru.oktemsec.game100ykt.models.Question
 import ru.oktemsec.game100ykt.utils.ResultListener
 
 class MainActivity : AppCompatActivity(), Navigator {
@@ -75,8 +74,14 @@ class MainActivity : AppCompatActivity(), Navigator {
         }
     }
 
-    override fun showQuestionDialog(question: Question) {
-        TODO("Not yet implemented")
+    override fun showQuestionDialog(reward: Int) {
+        if ((gameViewModel.availableQuestionsList.value?.size ?: 0) > 0) {
+            val questionDialogFragment = QuestionDialogFragment()
+            questionDialogFragment.show(supportFragmentManager, reward = reward)
+        }
+        else {
+            Toast.makeText(this, "Вопросов больше нет", Toast.LENGTH_SHORT).show()
+        }
     }
 
 

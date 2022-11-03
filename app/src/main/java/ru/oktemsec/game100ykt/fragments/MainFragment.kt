@@ -5,24 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ru.oktemsec.game100ykt.data.GameViewModel
 import ru.oktemsec.game100ykt.databinding.FragmentMainBinding
 import ru.oktemsec.game100ykt.dialogs.ChallengeDialogFragment
 import ru.oktemsec.game100ykt.dialogs.QuestionDialogFragment
+import ru.oktemsec.game100ykt.models.Question
 import ru.oktemsec.game100ykt.utils.navigator
-import kotlin.random.Random
 
 
 class MainFragment: Fragment() {
-
-    // ViewModel
-    private val gameViewModel: GameViewModel by activityViewModels()
-
-    // for debug
-    private val TAG = "brearey"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -79,13 +72,7 @@ class MainFragment: Fragment() {
     }
 
     private fun showQuestionDialogFragment(reward: Int) {
-        if ((gameViewModel.availableQuestionsList.value?.size ?: 0) > 0) {
-            val questionDialogFragment = QuestionDialogFragment()
-            questionDialogFragment.show(parentFragmentManager, reward = reward)
-        }
-        else {
-            Toast.makeText(requireContext(), "Вопросов больше нет", Toast.LENGTH_SHORT).show()
-        }
+        navigator().showQuestionDialog(reward)
     }
 
     private fun showChallengeDialogFragment(challengeNumber: Int, isTable: Boolean) {
