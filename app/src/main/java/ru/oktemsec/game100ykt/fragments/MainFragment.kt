@@ -47,7 +47,7 @@ class MainFragment: Fragment() {
             showChallengeDialogFragment(2, false)
         }
 
-        skyblueButton.setOnClickListener {
+        brownButton.setOnClickListener {
             showQuestionDialogFragment(reward = 2)
         }
 
@@ -55,7 +55,7 @@ class MainFragment: Fragment() {
             showChallengeDialogFragment(1, true)
         }
 
-        orangeButton.setOnClickListener {
+        pinkButton.setOnClickListener {
             showChallengeDialogFragment(1, true)
         }
 

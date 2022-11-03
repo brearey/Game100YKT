@@ -116,11 +116,11 @@
                 android:layout_marginEnd="@dimen/buttons_hor_margins"
                 android:contentDescription="@string/yellow_button"/>
             <ImageButton
-                android:id="@+id/orange_button"
+                android:id="@+id/pink_button"
                 android:layout_width="@dimen/color_button_width"
                 android:layout_height="@dimen/color_button_width"
-                android:background="@drawable/orange_button_custom"
-                android:contentDescription="@string/orange_button"/>
+                android:background="@drawable/pink_button_custom"
+                android:contentDescription="@string/pink_button"/>
         </LinearLayout>
 
         <!-- четвертый ряд кнопок -->
@@ -138,11 +138,11 @@
                 android:layout_marginEnd="@dimen/buttons_hor_margins"
                 android:contentDescription="@string/white_button"/>
             <ImageButton
-                android:id="@+id/skyblue_button"
+                android:id="@+id/brown_button"
                 android:layout_width="@dimen/color_button_width"
                 android:layout_height="@dimen/color_button_width"
-                android:background="@drawable/skyblue_button_custom"
-                android:contentDescription="@string/sky_blue_button"/>
+                android:background="@drawable/brown_button_custom"
+                android:contentDescription="@string/brown_button"/>
         </LinearLayout>
     </LinearLayout>
 
