@@ -9,15 +9,15 @@
     <color name="white">#FFFFFFFF</color>
     
     <color name="skyblue">#86C6F7</color>
-    <color name="darkblue">#3B509A</color>
+    <color name="darkblue">#173753</color>
 
 
 
     <color name="blue_button_color">#1199FF</color>
     <color name="red_button_color">#FF2400</color>
     <color name="green_button_color">#009900</color>
-    <color name="purple_button_color">#8828D2</color>
-    <color name="yellow_button_color">#F2D437</color>
-    <color name="orange_button_color">#E3931B</color>
-    <color name="skyblue_button_color">#8ECFFF</color>
+    <color name="purple_button_color">#540D6E</color>
+    <color name="yellow_button_color">#FFBE0B</color>
+    <color name="pink_button_color">#FF5C7A</color>
+    <color name="brown_button_color">#462521</color>
 </resources>

@@ -10,7 +10,7 @@
 
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
-            <solid android:color="@color/skyblue_button_color"/>
+            <solid android:color="@color/brown_button_color"/>
             <stroke
                 android:width="4dp"
                 android:color="@color/darkblue"/>

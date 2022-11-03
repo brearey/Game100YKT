@@ -3,7 +3,6 @@ package ru.oktemsec.game100ykt.dialogs
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
@@ -27,8 +26,11 @@ class QuestionDialogFragment: DialogFragment() {
         // Question init
         val questionModel = gameViewModel.nextQuestion()
         // set image of question or answer
+        if (questionModel.image == 0) {
+            image?.layoutParams?.width = 0
+            image?.layoutParams?.height = 0
+        }
         image?.setImageResource(questionModel.image)
-
 
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
             .setView(view)

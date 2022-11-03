@@ -16,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
 
         try {
             val videoHolder = findViewById<VideoView>(R.id.videoView)
-            val video: Uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.video100ykt)
+            val video: Uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.logo_splash_video)
             videoHolder.setVideoURI(video)
             videoHolder.setOnCompletionListener { jump() }
             videoHolder.start()

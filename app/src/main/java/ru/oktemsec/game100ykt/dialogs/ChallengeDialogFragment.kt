@@ -23,14 +23,10 @@ class ChallengeDialogFragment: DialogFragment() {
         val view = activity?.layoutInflater?.inflate(R.layout.image_layout, null)
         val image = view?.findViewById<ImageView>(R.id.dialog_imageview)
 
-        // set image of question or answer
-        if ( imageList[ dialog_argument ] != null ) {
-            imageList[ dialog_argument ]?.let { image?.setImageResource(it) }
-        }
-        else {
-            // clear image
-            image?.setImageResource(0)
-        }
+        // set image of challenge
+        image?.setImageResource(0)
+        image?.layoutParams?.width = 0
+        image?.layoutParams?.height = 0
 
         // разделение табличных заданий от обычных
         val message = if (isTable) {
@@ -76,12 +72,6 @@ class ChallengeDialogFragment: DialogFragment() {
             "Передай ход следующему"
         )
 
-        //for debug
-        @JvmStatic val imageList = listOf(
-            R.drawable.game_area,
-            null,
-            R.drawable.ykt100years
-        )
     }
 
     fun show(manager: FragmentManager, dialog_argument: Int, isTable: Boolean) {
