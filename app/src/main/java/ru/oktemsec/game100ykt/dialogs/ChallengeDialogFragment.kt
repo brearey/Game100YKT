@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import ru.oktemsec.game100ykt.R
+import ru.oktemsec.game100ykt.data.GameRepository
 import kotlin.random.Random
 
 class ChallengeDialogFragment: DialogFragment() {
@@ -23,6 +24,9 @@ class ChallengeDialogFragment: DialogFragment() {
         val view = activity?.layoutInflater?.inflate(R.layout.image_layout, null)
         val image = view?.findViewById<ImageView>(R.id.dialog_imageview)
 
+        // game repo
+        val gameRepository = GameRepository()
+
         // set image of challenge
         image?.setImageResource(0)
         image?.layoutParams?.width = 0
@@ -30,10 +34,10 @@ class ChallengeDialogFragment: DialogFragment() {
 
         // разделение табличных заданий от обычных
         val message = if (isTable) {
-            tableChallengeList[Random.nextInt(0, tableChallengeList.size)]
+            gameRepository.getTableChallengesList()[Random.nextInt(0, gameRepository.getTableChallengesList().size)]
         }
         else {
-            challengeList[dialog_argument]
+            gameRepository.getChallengesList()[dialog_argument]
         }
 
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
@@ -55,22 +59,6 @@ class ChallengeDialogFragment: DialogFragment() {
 
         @JvmStatic val DIALOG_ARGUMENT = "DIALOG_ARGUMENT"
         @JvmStatic val DIALOG_IS_TABLE = "DIALOG_IS_TABLE"
-
-        //for debug
-        @JvmStatic val challengeList = listOf(
-            "Передай право хода следующему игроку",
-            "Переходи по картинке-мосту на другой квадратик",
-            "Таймаут. Пропускаешь ход"
-        )
-
-        //for debug
-        @JvmStatic val tableChallengeList = listOf(
-            "Прочитай любое стихотворение",
-            "Расскажи любой факт о декларации, который ты успел узнать",
-            "Спой песню",
-            "Сделай комплимент рядом сидящему игроку",
-            "Передай ход следующему"
-        )
 
     }
 

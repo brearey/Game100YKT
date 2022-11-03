@@ -35,7 +35,23 @@ class GameRepository {
         ),
     )
 
-    // Информационные карточки
+    // Задания
+    private val challengeList = listOf(
+        "Передай право хода следующему игроку",
+        "Переходи по картинке-мосту на другой квадратик",
+        "Таймаут. Пропускаешь ход"
+    )
+
+    //for debug
+    private val tableChallengeList = listOf(
+        "Прочитай любое стихотворение",
+        "Расскажи любой факт о декларации, который ты успел узнать",
+        "Спой песню",
+        "Сделай комплимент рядом сидящему игроку",
+        "Передай ход следующему"
+    )
+
+    // Методы информационные карточки
     fun getTextsList() : Array<String> {
         var result = emptyArray<String>()
         informations_array.forEachIndexed { index, _ ->
@@ -52,7 +68,7 @@ class GameRepository {
     }
 
 
-    // Вопросы
+    // Методы вопросы
     fun getQuestionTextsList(): Array<String> {
         var result = emptyArray<String>()
         questions_array.forEachIndexed { index, _ ->
@@ -73,5 +89,13 @@ class GameRepository {
             result += questions_array[index].answer
         }
         return result
+    }
+
+    // Методы задания
+    fun getChallengesList(): List<String> {
+        return challengeList
+    }
+    fun getTableChallengesList(): List<String> {
+        return tableChallengeList
     }
 }

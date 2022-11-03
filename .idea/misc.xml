@@ -13,6 +13,7 @@
         <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/drawable-v24/yellow_button_custom.xml" value="0.5265" />
         <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/drawable/blue_button_custom.xml" value="0.333" />
         <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/drawable/button_background.xml" value="0.333" />
+        <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/drawable/ic_applogo.xml" value="0.472" />
         <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/drawable/ic_challenge.xml" value="0.271" />
         <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/drawable/ic_question.xml" value="0.271" />
         <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
@@ -21,6 +22,7 @@
         <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/layout/fragment_information_card.xml" value="0.5" />
         <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/layout/fragment_main.xml" value="0.553125" />
         <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/layout/image_layout.xml" value="0.33" />
+        <entry key="..\:/KotlinPro/Game100YKT/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.472" />
       </map>
     </option>
   </component>
