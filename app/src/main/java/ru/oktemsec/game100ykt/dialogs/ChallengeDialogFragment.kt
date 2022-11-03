@@ -33,9 +33,10 @@ class ChallengeDialogFragment: DialogFragment() {
         image?.layoutParams?.height = 0
 
         // разделение табличных заданий от обычных
+        val randomChallenge = Random.nextInt(0, gameRepository.getTableChallengesList().size)
         val message = if (isTable) {
             when(dialog_argument) {
-                1 -> gameRepository.getTableChallengesList()[Random.nextInt(0, gameRepository.getTableChallengesList().size)]
+                1 -> gameRepository.getTableChallengesList()[randomChallenge]
                 2 -> gameRepository.getMagnetoChallengeList()[Random.nextInt(0, gameRepository.getMagnetoChallengeList().size)]
                 else -> "Произошла неизвестная ошибка"
             }
@@ -44,14 +45,36 @@ class ChallengeDialogFragment: DialogFragment() {
             gameRepository.getChallengesList()[dialog_argument]
         }
 
+        // Если задание песня
+        val neutralButtonText:Int
+        if (randomChallenge == 2) {
+            neutralButtonText = R.string.open_sing
+        }
+        // Если задание стих
+        else if (randomChallenge == 0) {
+            neutralButtonText = R.string.open_verse
+        }
+        else {
+            neutralButtonText = R.string.close_dialog
+        }
+
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
             .setView(view)
             .setCancelable(true)
             .setIcon(R.drawable.ic_challenge)
             .setTitle("Ваше задание")
             .setMessage(message)
-            .setNeutralButton(R.string.close_dialog) {_, _ ->
-                dialog?.cancel()
+            .setNeutralButton(neutralButtonText) {_, _ ->
+                if (randomChallenge == 2) {
+                    // открыть песню
+
+                } else if (randomChallenge == 0) {
+                    // открыть стих
+
+                }
+                else {
+                    dialog?.cancel()
+                }
             }
         val alertDialog = alertDialogBuilder.create()
         alertDialog.setCanceledOnTouchOutside(false)

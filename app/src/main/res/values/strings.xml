@@ -21,4 +21,10 @@
     <string name="icard">Информационная карточка</string>
     <string name="button_back">Кнопка назад</string>
     <string name="example_source">Источник: <u>https://www.100yakutia.ru/istoriya-yakutii/47-istoriya-yakutii</u></string>
+    <string name="open_sing">Открыть песню</string>
+    <string name="open_verse">Открыть стих</string>
+    <string name="sing">Песня</string>
+
+    <string name="gimn_sakha">Сахам сирэ дьоллоох тускуга\nСаһарҕалыы ыҥыра ыллыыр.\nИлинтэн арҕаа ол кустуга\nАлмаас таас курдук сандаара сырдыыр.\n\nПрипев:\nБарҕа быйаҥнаах Сахам дойдута\nМодун Арассыыйа киэн туттуута,\nӨркөн өрөгөй тойугун туойдун,\nҮүнэр үйэҕэ үрдүү туруохтун!\n\nҮллэр үөстээх Өлүөнэ Эбэ\nӨлбөт мэҥэ угуттуур уулаах.\nЭлбэх омукка эрчим эбэр,\nИли-эйэни олохтуур уохтаах.\n\nПрипев.\n\nАаспыт кэммит айхаллаах суола\nАрчылыыр аар алгыһын биэрдэ.\nСахабыт сирэ дьоһун, дуолан\nСайдыы аартыгар түөрэҕэ түстэ.\n\nПрипев.</string>
+    <string name="player_time_zero">00:00</string>
 </resources>
