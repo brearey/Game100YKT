@@ -31,9 +31,6 @@ class GameViewModel : ViewModel() {
         // пока ИК и вопросы не связаны
         availableQuestionsList.value = ArrayRandom().getRandomArray( GameRepository().getQuestionTextsList().size ).toMutableList()
         randomNumberListForInformationCard.value = ArrayRandom().getRandomArray(GameRepository().getTextsList().size).toMutableList()
-
-        //debug IC
-        Log.d("brearey", GameRepository().getTextsList()[1])
     }
 
     fun nextInformationCard() : InformationCard {

@@ -34,7 +34,11 @@ class ChallengeDialogFragment: DialogFragment() {
 
         // разделение табличных заданий от обычных
         val message = if (isTable) {
-            gameRepository.getTableChallengesList()[Random.nextInt(0, gameRepository.getTableChallengesList().size)]
+            when(dialog_argument) {
+                1 -> gameRepository.getTableChallengesList()[Random.nextInt(0, gameRepository.getTableChallengesList().size)]
+                2 -> gameRepository.getMagnetoChallengeList()[Random.nextInt(0, gameRepository.getMagnetoChallengeList().size)]
+                else -> "Произошла неизвестная ошибка"
+            }
         }
         else {
             gameRepository.getChallengesList()[dialog_argument]

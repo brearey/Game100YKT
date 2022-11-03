@@ -49,7 +49,7 @@ class MainFragment: Fragment() {
         }
 
         pinkButton.setOnClickListener {
-            showChallengeDialogFragment(1, true)
+            showChallengeDialogFragment(2, true)
         }
 
         redButton.setOnClickListener {

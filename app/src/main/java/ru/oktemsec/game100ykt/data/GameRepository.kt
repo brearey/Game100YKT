@@ -42,13 +42,16 @@ class GameRepository {
         "Таймаут. Пропускаешь ход"
     )
 
-    //for debug
     private val tableChallengeList = listOf(
         "Прочитай любое стихотворение",
         "Расскажи любой факт о декларации, который ты успел узнать",
-        "Спой песню",
-        "Сделай комплимент рядом сидящему игроку",
-        "Передай ход следующему"
+        "Спой песню"
+    )
+
+    private val magnetoChallengeList = listOf(
+        "Вы попали в магнитный поток. Иди на два шага назад",
+        "Вы попали в магнитный поток. Иди на три шага вперед",
+        "Вы попали в магнитный поток. Тебе повезло бери жетон"
     )
 
     // Методы информационные карточки
@@ -97,5 +100,10 @@ class GameRepository {
     }
     fun getTableChallengesList(): List<String> {
         return tableChallengeList
+    }
+
+    //Meridian
+    fun getMagnetoChallengeList(): List<String> {
+        return magnetoChallengeList
     }
 }
