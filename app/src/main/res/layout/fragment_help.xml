@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/game_roles"
+                android:text="@string/game_rules_title"
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -45,24 +45,80 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lorem"
+            android:text="@string/game_rules1"
             android:justificationMode="inter_word"
             android:padding="16dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="italic"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="16dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bergen"
+                android:contentDescription="@string/bergen"/>
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/aita"
+                android:contentDescription="@string/aita"/>
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/michiye"
+                android:contentDescription="@string/michiye"/>
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/erchim"
+                android:contentDescription="@string/erchim"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/game_area"
-            android:contentDescription="@string/game_area"/>
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bergen"/>
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/aita"/>
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/michiye"/>
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/erchim"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lorem"
+            android:text="@string/game_rules2"
             android:justificationMode="inter_word"
             android:padding="16dp"
             android:textColor="@color/black"
