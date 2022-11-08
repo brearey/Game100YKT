@@ -9,6 +9,8 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import ru.oktemsec.game100ykt.R
 import ru.oktemsec.game100ykt.data.GameRepository
+import ru.oktemsec.game100ykt.fragments.PlayerFragment
+import ru.oktemsec.game100ykt.utils.navigator
 import kotlin.random.Random
 
 class ChallengeDialogFragment: DialogFragment() {
@@ -47,11 +49,11 @@ class ChallengeDialogFragment: DialogFragment() {
 
         // Если задание песня
         val neutralButtonText:Int
-        if (randomChallenge == 2) {
+        if (randomChallenge == 2 && isTable && dialog_argument == 1) {
             neutralButtonText = R.string.open_sing
         }
         // Если задание стих
-        else if (randomChallenge == 0) {
+        else if (randomChallenge == 0 && isTable && dialog_argument == 1) {
             neutralButtonText = R.string.open_verse
         }
         else {
@@ -65,10 +67,10 @@ class ChallengeDialogFragment: DialogFragment() {
             .setTitle("Ваше задание")
             .setMessage(message)
             .setNeutralButton(neutralButtonText) {_, _ ->
-                if (randomChallenge == 2) {
-                    // открыть песню
+                if (randomChallenge == 2 && isTable && dialog_argument == 1) {
+                    navigator().showPlayerScreen()
 
-                } else if (randomChallenge == 0) {
+                } else if (randomChallenge == 0 && isTable && dialog_argument == 1) {
                     // открыть стих
 
                 }

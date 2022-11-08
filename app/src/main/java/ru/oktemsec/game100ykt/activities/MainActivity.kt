@@ -18,6 +18,7 @@ import ru.oktemsec.game100ykt.dialogs.QuestionDialogFragment
 import ru.oktemsec.game100ykt.fragments.HelpFragment
 import ru.oktemsec.game100ykt.fragments.InformationCardFragment
 import ru.oktemsec.game100ykt.fragments.MainFragment
+import ru.oktemsec.game100ykt.fragments.PlayerFragment
 import ru.oktemsec.game100ykt.utils.Navigator
 import ru.oktemsec.game100ykt.utils.ResultListener
 
@@ -63,6 +64,10 @@ class MainActivity : AppCompatActivity(), Navigator {
     // открыть фрагмент "Правила игры"
     override fun showHelpScreen() {
         launchFragment(HelpFragment())
+    }
+
+    override fun showPlayerScreen() {
+        launchFragment(PlayerFragment())
     }
 
     override fun showInformationCard() {

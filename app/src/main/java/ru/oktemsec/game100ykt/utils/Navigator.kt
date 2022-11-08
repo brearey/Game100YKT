@@ -19,6 +19,9 @@ interface Navigator {
     // открыть Правила игры
     fun showHelpScreen()
 
+    // открыть песню
+    fun showPlayerScreen()
+
     fun showQuestionDialog(reward: Int)
 
     fun goBack()
