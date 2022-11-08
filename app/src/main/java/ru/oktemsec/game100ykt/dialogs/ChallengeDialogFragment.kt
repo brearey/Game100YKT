@@ -68,11 +68,12 @@ class ChallengeDialogFragment: DialogFragment() {
             .setMessage(message)
             .setNeutralButton(neutralButtonText) {_, _ ->
                 if (randomChallenge == 2 && isTable && dialog_argument == 1) {
+                    // открыть песню
                     navigator().showPlayerScreen()
 
                 } else if (randomChallenge == 0 && isTable && dialog_argument == 1) {
                     // открыть стих
-
+                    navigator().showVerseScreen()
                 }
                 else {
                     dialog?.cancel()

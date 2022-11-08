@@ -30,7 +30,6 @@ class PlayerFragment : Fragment() {
         mediaPlayer = MediaPlayer.create(requireContext(), R.raw.gimn_sakha)
 
         //Make sure you update Seekbar on UI thread
-        //requireActivity().runOnUiThread(object : Runnable {
         val runnable: Runnable = object: Runnable {
             override fun run() {
                 seekBar.progress = mediaPlayer.currentPosition

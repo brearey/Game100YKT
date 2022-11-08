@@ -22,6 +22,9 @@ interface Navigator {
     // открыть песню
     fun showPlayerScreen()
 
+    // открыть стихотворение
+    fun showVerseScreen()
+
     fun showQuestionDialog(reward: Int)
 
     fun goBack()

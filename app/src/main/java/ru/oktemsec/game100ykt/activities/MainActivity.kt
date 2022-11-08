@@ -15,10 +15,7 @@ import ru.oktemsec.game100ykt.R
 import ru.oktemsec.game100ykt.data.GameViewModel
 import ru.oktemsec.game100ykt.databinding.ActivityMainBinding
 import ru.oktemsec.game100ykt.dialogs.QuestionDialogFragment
-import ru.oktemsec.game100ykt.fragments.HelpFragment
-import ru.oktemsec.game100ykt.fragments.InformationCardFragment
-import ru.oktemsec.game100ykt.fragments.MainFragment
-import ru.oktemsec.game100ykt.fragments.PlayerFragment
+import ru.oktemsec.game100ykt.fragments.*
 import ru.oktemsec.game100ykt.utils.Navigator
 import ru.oktemsec.game100ykt.utils.ResultListener
 
@@ -68,6 +65,10 @@ class MainActivity : AppCompatActivity(), Navigator {
 
     override fun showPlayerScreen() {
         launchFragment(PlayerFragment())
+    }
+
+    override fun showVerseScreen() {
+        launchFragment(VerseFragment())
     }
 
     override fun showInformationCard() {
