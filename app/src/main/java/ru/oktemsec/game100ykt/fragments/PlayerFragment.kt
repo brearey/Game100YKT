@@ -28,6 +28,7 @@ class PlayerFragment : Fragment() {
 
         // Media player
         mediaPlayer = MediaPlayer.create(requireContext(), R.raw.gimn_sakha)
+        mediaPlayer.setVolume(0.3f, 0.3f)
 
         //Make sure you update Seekbar on UI thread
         val runnable: Runnable = object: Runnable {

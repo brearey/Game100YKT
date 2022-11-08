@@ -7,6 +7,21 @@
     android:background="@drawable/bg"
     tools:context=".activities.MainActivity">
 
+    <ImageView
+        android:id="@+id/bergen"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+
+        android:translationX="500dp"
+        android:translationY="300dp"
+
+        android:contentDescription="@string/bergen"
+        android:src="@drawable/bergen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
@@ -14,8 +29,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:name="ru.oktemsec.game100ykt.fragments.MainFragment"
+        tools:layout="@layout/fragment_main" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
