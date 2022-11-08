@@ -12,8 +12,8 @@
         android:layout_width="100dp"
         android:layout_height="200dp"
 
-        android:translationX="500dp"
-        android:translationY="300dp"
+        android:translationX="-50dp"
+        android:translationY="-150dp"
 
         android:contentDescription="@string/bergen"
         android:src="@drawable/bergen"

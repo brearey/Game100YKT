@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
     <objectAnimator
-        android:valueFrom="350dp"
-        android:valueTo="500dp"
+        android:valueFrom="0dp"
+        android:valueTo="-50dp"
         android:propertyName="translationX"
-        android:duration="1200"
+        android:duration="500"
         />
+    <objectAnimator
+        android:propertyName="rotation"
+        android:valueFrom="50"
+        android:valueTo="0"
+        android:duration="500"/>
 </set>
