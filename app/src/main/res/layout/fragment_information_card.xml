@@ -67,7 +67,7 @@
             android:id="@+id/icard_text"
             android:scrollbars="vertical"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:autoSizeTextType="uniform"
             android:autoSizeMaxTextSize="22sp"

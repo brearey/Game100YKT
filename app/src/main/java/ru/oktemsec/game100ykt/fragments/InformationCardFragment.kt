@@ -3,6 +3,7 @@ package ru.oktemsec.game100ykt.fragments
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import ru.oktemsec.game100ykt.R
 import ru.oktemsec.game100ykt.data.GameViewModel
 import ru.oktemsec.game100ykt.databinding.FragmentInformationCardBinding
 import ru.oktemsec.game100ykt.utils.navigator
+
 
 class InformationCardFragment(private val gameViewModel: GameViewModel) : Fragment() {
 
