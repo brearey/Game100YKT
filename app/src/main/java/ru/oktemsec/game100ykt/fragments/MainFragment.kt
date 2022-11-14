@@ -4,18 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import ru.oktemsec.game100ykt.data.GameViewModel
+import ru.oktemsec.game100ykt.R
 import ru.oktemsec.game100ykt.databinding.FragmentMainBinding
 import ru.oktemsec.game100ykt.dialogs.ChallengeDialogFragment
-import ru.oktemsec.game100ykt.dialogs.QuestionDialogFragment
-import ru.oktemsec.game100ykt.models.Question
+import ru.oktemsec.game100ykt.utils.ChildMessage
 import ru.oktemsec.game100ykt.utils.navigator
 
 
 class MainFragment: Fragment() {
+
+    private lateinit var bergenImageView: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,12 +23,16 @@ class MainFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? = FragmentMainBinding.inflate(inflater, container, false).apply {
 
+
+
         // click color buttons
         blueButton.setOnClickListener {
             showQuestionDialogFragment(reward = 1)
         }
 
         whiteButton.setOnClickListener {
+            animateChild()
+            playSoundOo()
             showChallengeDialogFragment(0, false)
         }
 
@@ -37,6 +41,8 @@ class MainFragment: Fragment() {
         }
 
         yellowButton.setOnClickListener {
+            animateChild()
+            playSoundOo()
             showChallengeDialogFragment(2, false)
         }
 
@@ -82,5 +88,16 @@ class MainFragment: Fragment() {
 
         val challengeDialogFragment = ChallengeDialogFragment()
         challengeDialogFragment.show(parentFragmentManager, challengeNumber, isTable)
+    }
+
+    private fun animateChild() {
+        val bergenImageView = activity?.findViewById<ImageView>(R.id.bergen)
+        if (bergenImageView != null) {
+            ChildMessage().startAnimateWithEnd(requireContext(), R.animator.oo_start_animator, R.animator.oo_end_animator, bergenImageView)
+        }
+    }
+
+    private fun playSoundOo() {
+        ChildMessage().playMessageSound(requireContext(), R.raw.oo)
     }
 }

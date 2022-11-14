@@ -21,8 +21,6 @@ class ChallengeDialogFragment: DialogFragment() {
     private val isTable: Boolean
         get() = requireArguments().getBoolean(DIALOG_IS_TABLE)
 
-    private lateinit var bergenImageView: ImageView
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val view = activity?.layoutInflater?.inflate(R.layout.image_layout, null)
@@ -53,14 +51,10 @@ class ChallengeDialogFragment: DialogFragment() {
         val neutralButtonText:Int
         if (randomChallenge == 2 && isTable && dialog_argument == 1) {
             neutralButtonText = R.string.open_sing
-            animateChild()
-            playSoundOo()
         }
         // Если задание стих
         else if (randomChallenge == 0 && isTable && dialog_argument == 1) {
             neutralButtonText = R.string.open_verse
-            animateChild()
-            playSoundOo()
         }
         else {
             neutralButtonText = R.string.close_dialog
@@ -105,14 +99,5 @@ class ChallengeDialogFragment: DialogFragment() {
             DIALOG_IS_TABLE to isTable
         )
         dialogFragment.show(manager, TAG)
-    }
-
-    private fun animateChild() {
-        bergenImageView = requireActivity().findViewById(R.id.bergen)
-        ChildMessage().startAnimateWithEnd(requireContext(), R.animator.oo_start_animator, R.animator.oo_end_animator, bergenImageView)
-    }
-
-    private fun playSoundOo() {
-        ChildMessage().playMessageSound(requireContext(), R.raw.oo)
     }
 }
