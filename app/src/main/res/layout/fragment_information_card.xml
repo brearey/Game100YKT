@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="@string/icard"
             android:textColor="@color/darkblue"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
         android:layout_height="450dp"
         android:src="@drawable/game_area"
         android:scaleType="center"
-        android:background="@drawable/white_button_custom"
+        android:background="@drawable/information_card_bg"
         android:padding="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,6 +65,7 @@
 
         <TextView
             android:id="@+id/icard_text"
+            android:textColor="?attr/colorPrimary"
             android:scrollbars="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
