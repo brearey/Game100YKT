@@ -146,16 +146,30 @@ class MainActivity : AppCompatActivity(), Navigator {
 
         //Check exist zeros
         val file = File(path, fileName)
-        val inputAsString = FileInputStream(file).bufferedReader().use { it.readText() }
-        val list = inputAsString.split(",")
-        if (list.size !== questionsCount) {
-            var str = "0"
-            for (i in 0 until questionsCount - 1) {
-                str += ",0"
+        if (file.isFile) {
+            val inputAsString = FileInputStream(file).bufferedReader().use { it.readText() }
+            val list = inputAsString.split(",")
+            if (list.size !== questionsCount) {
+                var str = "0"
+                for (i in 0 until questionsCount - 1) {
+                    str += ",0"
+                }
+                try {
+                    val writer: FileOutputStream = FileOutputStream(File(path, fileName));
+                    Log.d("brearey", "Reset zeros in file.txt $str");
+                    writer.write(str.toByteArray());
+                    writer.close();
+                } catch (e: Exception) {
+                    e.printStackTrace();
+                }
             }
+        } else {
             try {
                 val writer: FileOutputStream = FileOutputStream(File(path, fileName));
-                Log.d("brearey", "Reset zeros in file.txt $str");
+                var str = "0"
+                for (i in 0 until questionsCount - 1) {
+                    str += ",0"
+                }
                 writer.write(str.toByteArray());
                 writer.close();
             } catch (e: Exception) {
