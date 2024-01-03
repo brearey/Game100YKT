@@ -3,6 +3,7 @@ package ru.oktemsec.game100ykt.dialogs
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
@@ -38,7 +39,14 @@ class AnswerDialogFragment: DialogFragment() {
             .setIcon(R.drawable.ic_challenge)
             .setTitle("Правильный ответ:")
             .setMessage(answersList[dialog_argument])
-            .setNeutralButton(R.string.close_dialog) {_, _ ->
+            .setPositiveButton(R.string.right) {_, _ ->
+                // TODO: сделать метод позитивное изменение рейтинга ELO
+                Toast.makeText(activity, "Right", Toast.LENGTH_SHORT).show()
+                dialog?.cancel()
+            }
+            .setNegativeButton(R.string.wrong) {_, _ ->
+                // TODO: сделать метод негативное изменение рейтинга ELO
+                Toast.makeText(activity, "Wrong", Toast.LENGTH_SHORT).show()
                 dialog?.cancel()
             }
         val alertDialog = alertDialogBuilder.create()

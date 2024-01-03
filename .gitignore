@@ -13,3 +13,13 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/release/app-release.aab
+/release/app-release.aab
+/app/release/app-release.apk
+/.idea/codeStyles/codeStyleConfig.xml
+/app/src/androidTest/java/ru/oktemsec/game100ykt/ExampleInstrumentedTest.kt
+/app/src/test/java/ru/oktemsec/game100ykt/ExampleUnitTest.kt
+/KEYSTORES/googleplaysign.jks
+/app/release/output-metadata.json
+/KEYSTORES/private_key.pepk
+/.idea/codeStyles/Project.xml
