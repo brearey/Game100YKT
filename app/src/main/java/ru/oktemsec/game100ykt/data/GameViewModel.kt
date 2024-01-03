@@ -64,6 +64,10 @@ class GameViewModel : ViewModel() {
         return randomNumberListForInformationCard.value?.size ?: 0
     }
 
+    fun getQuestionsCount(): Int {
+        return questionList.size
+    }
+
     private fun printList(name: String, list: MutableList<Int>?) {
         var result = ""
         if (list != null) {

@@ -3,6 +3,7 @@ package ru.oktemsec.game100ykt.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -18,6 +19,10 @@ import ru.oktemsec.game100ykt.dialogs.QuestionDialogFragment
 import ru.oktemsec.game100ykt.fragments.*
 import ru.oktemsec.game100ykt.utils.Navigator
 import ru.oktemsec.game100ykt.utils.ResultListener
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity(), Navigator {
 
@@ -46,6 +51,9 @@ class MainActivity : AppCompatActivity(), Navigator {
         }
 
         supportFragmentManager.registerFragmentLifecycleCallbacks(fragmentListener, false)
+
+        // Create file.txt with questions indexes
+        writeToFile(gameViewModel.getQuestionsCount())
     }
 
     override fun onDestroy() {
@@ -130,5 +138,29 @@ class MainActivity : AppCompatActivity(), Navigator {
 
     companion object {
         @JvmStatic private val KEY_RESULT = "RESULT"
+    }
+
+    private fun writeToFile(questionsCount: Int) {
+        val fileName = "file.txt";
+        val path: File? = this.filesDir;
+
+        //Check exist zeros
+        val file = File(path, fileName)
+        val inputAsString = FileInputStream(file).bufferedReader().use { it.readText() }
+        val list = inputAsString.split(",")
+        if (list.size !== questionsCount) {
+            var str = "0"
+            for (i in 0 until questionsCount - 1) {
+                str += ",0"
+            }
+            try {
+                val writer: FileOutputStream = FileOutputStream(File(path, fileName));
+                Log.d("brearey", "Reset zeros in file.txt $str");
+                writer.write(str.toByteArray());
+                writer.close();
+            } catch (e: Exception) {
+                e.printStackTrace();
+            }
+        }
     }
 }

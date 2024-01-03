@@ -2,6 +2,7 @@ package ru.oktemsec.game100ykt.dialogs
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -10,6 +11,10 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import ru.oktemsec.game100ykt.R
 import ru.oktemsec.game100ykt.data.GameRepository
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.lang.Exception
 
 class AnswerDialogFragment: DialogFragment() {
 
@@ -40,13 +45,12 @@ class AnswerDialogFragment: DialogFragment() {
             .setTitle("Правильный ответ:")
             .setMessage(answersList[dialog_argument])
             .setPositiveButton(R.string.right) {_, _ ->
-                // TODO: сделать метод позитивное изменение рейтинга ELO
-                Toast.makeText(activity, "Right", Toast.LENGTH_SHORT).show()
+                calculateRatingElo(dialog_argument, 1);
                 dialog?.cancel()
             }
             .setNegativeButton(R.string.wrong) {_, _ ->
-                // TODO: сделать метод негативное изменение рейтинга ELO
-                Toast.makeText(activity, "Wrong", Toast.LENGTH_SHORT).show()
+                calculateRatingElo(dialog_argument, -1)
+                readFile();
                 dialog?.cancel()
             }
         val alertDialog = alertDialogBuilder.create()
@@ -63,5 +67,35 @@ class AnswerDialogFragment: DialogFragment() {
         val dialogFragment = AnswerDialogFragment()
         dialogFragment.arguments = bundleOf(DIALOG_ARGUMENT to dialog_argument)
         dialogFragment.show(manager, TAG)
+    }
+
+    private fun writeToFile(content: String) {
+        val fileName = "file.txt";
+        val path: File? = activity?.filesDir;
+        Log.d("brearey", path.toString());
+        try {
+            val writer: FileOutputStream = FileOutputStream(File(path, fileName));
+            writer.write(content.toByteArray());
+            writer.close();
+        } catch (e: Exception) {
+            e.printStackTrace();
+        }
+    }
+
+    private fun readFile(): String {
+        val fileName = "file.txt";
+        val path: File? = activity?.filesDir;
+        val file = File(path, fileName)
+        return FileInputStream(file).bufferedReader().use { it.readText() }
+    }
+
+    private fun calculateRatingElo(index: Int, rating: Int) {
+        val list = readFile().split(",").toMutableList()
+        list[index] = (list[index].toInt() + rating).toString()
+        var str = list[0]
+        for (i in 0 until list.size - 1) {
+            str += ",${list[i]}"
+        }
+        writeToFile(str)
     }
 }
